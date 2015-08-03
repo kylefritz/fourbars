@@ -2,15 +2,14 @@ require('../css/style.css');
 var React = require('react');
 var Topics = require('./Topics') //render today's topic
 
-
 var App = React.createClass({
 	getInitialState: function(){
 		return {
 			user: {},
-			topic: "Cool Winter Morning"
+			topic: ""
 		}
 	},
-	componentDidMount: function(){
+	componentWillMount: function(){
 		fetch('/user')
 		// .then(function(d){ return d.json()})
 		.then(function(data){
@@ -20,7 +19,7 @@ var App = React.createClass({
 	render: function(){
 		return(<div>
 				<div>Welcome, {this.state.user}!</div>
-					{this.state.topic}
+				<Topics />
 					<br/>
 					<input type="text"> </input>
 				</div>

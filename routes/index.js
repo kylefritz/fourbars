@@ -12,4 +12,11 @@ router.get('/user', function(req, res, next) {
   })
 });
 
+router.get('/topics', function(req, res, next) {
+  res.json({
+  	topic: "Cool Winter Morning" //need to link to DB
+  })
+});
+
+
 module.exports = router;
