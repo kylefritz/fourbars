@@ -11,7 +11,6 @@ var App = React.createClass({
 		}
 	},
 	componentDidMount: function(){
-		// var _this = this;
 		fetch('/user')
 		.then(function(d){ return d.json()})
 		.then(function(data){
@@ -19,7 +18,6 @@ var App = React.createClass({
 		}.bind(this));
 	},
 	render: function(){
-		console.log(this.state);
 		return(<div>
 				<div>Welcome, {this.state.user.name}!</div>
 					{this.state.topic}
@@ -29,7 +27,6 @@ var App = React.createClass({
 			)
 	}
 })
-
 
 window.onload = function(){
 	React.render(<App />, document.getElementById("content"));
