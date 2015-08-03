@@ -6,12 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var fs = require('fs');
 
 var app = express();
 app.locals.assetBundles = JSON.parse(fs.readFileSync('./webpack-assets.json', 'utf8'))
 console.log(JSON.stringify(app.locals.assetBundles))
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/', require('./routes/sign_in'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
