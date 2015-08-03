@@ -11,15 +11,14 @@ var App = React.createClass({
 	},
 	componentWillMount: function(){
 		fetch('/user')
-		// .then(function(d){ return d.json()})
 		.then(function(data){
-			this.setState({user: data.name});
+			this.setState({user: data});
 		}.bind(this));
 	},
 	render: function(){
-		return(<div>
-				<div>Welcome, {this.state.user}!</div>
-				<Topics />
+		return(	<div>
+					<div>Welcome, {this.state}!</div>
+					<Topics />
 					<br/>
 					<input type="text"> </input>
 				</div>
