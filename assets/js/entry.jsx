@@ -12,17 +12,17 @@ var App = React.createClass({
 	},
 	componentDidMount: function(){
 		fetch('/user')
-		.then(function(d){ return d.json()})
+		// .then(function(d){ return d.json()})
 		.then(function(data){
-			this.setState({user: data});
+			this.setState({user: data.name});
 		}.bind(this));
 	},
 	render: function(){
 		return(<div>
-				<div>Welcome, {this.state.user.name}!</div>
+				<div>Welcome, {this.state.user}!</div>
 					{this.state.topic}
 					<br/>
-
+					<input type="text"> </input>
 				</div>
 			)
 	}
