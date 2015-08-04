@@ -4,10 +4,9 @@ var React = require('react');
 
 var Topics = React.createClass({
 	componentDidMount: function(){
-		var _this = this;
-		fetch('/entries').then(function(d){ return d.json()}).then(function(data){
-			_this.setState({entries: data.entries});
-		});
+		fetch('/topics').then(function(d){ return d.json()}).then(function(data){
+			this.setState({topics: data.entries});
+		}.bind(this));
 	},
 	render: function(){
 		return(<div>

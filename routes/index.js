@@ -8,9 +8,13 @@ router.get('/', function(req, res, next) {
 
 router.get('/user', function(req, res, next) {
   res.json({
-  	user: [{
-  		name: 'ryan'
-  	}]
+  	user: "ryan"
+  })
+});
+
+router.get('/topics', function(req, res, next) {
+  res.json({
+  	topic: "cool winter morning"
   })
 });
 

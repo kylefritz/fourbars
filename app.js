@@ -9,8 +9,8 @@ var routes = require('./routes/index');
 var fs = require('fs');
 
 var app = express();
-app.locals.assetBundles = JSON.parse(fs.readFileSync('./webpack-assets.json', 'utf8'))
-console.log(JSON.stringify(app.locals.assetBundles))
+app.locals.assetBundles = JSON.parse(fs.readFileSync('./webpack-assets.json', 'utf8'));
+console.log(JSON.stringify(app.locals.assetBundles));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
