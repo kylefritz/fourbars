@@ -7,10 +7,10 @@ var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 
 var App = React.createClass({
-  render () {
+  render: function() {
     return (
       <div>
-        <h1>App</h1>
+        <h1>4Bars</h1>
         <Welcome />
         <RouteHandler/>
       </div>
