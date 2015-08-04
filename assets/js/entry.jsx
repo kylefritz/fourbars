@@ -1,31 +1,7 @@
-require('../css/style.css');
 var React = require('react');
-var Topics = require('./Topics') //render today's topic
+var Router = require('react-router');
+var routes = require('./routes');
 
-var App = React.createClass({
-	getInitialState: function(){
-		return {
-			user: {},
-			topic: ""
-		}
-	},
-	componentWillMount: function(){
-		fetch('/user')
-		.then(function(data){
-			this.setState({user: data});
-		}.bind(this));
-	},
-	render: function(){
-		return(	<div>
-					<div>Welcome, {this.state}!</div>
-					<Topics />
-					<br/>
-					<input type="text"> </input>
-				</div>
-			)
-	}
-})
-
-window.onload = function(){
-	React.render(<App />, document.getElementById("content"));
-}
+Router.run(routes, Router.HashLocation, (Root) => {
+  React.render(<Root/>, document.body);
+});
