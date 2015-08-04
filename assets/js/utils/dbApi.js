@@ -1,5 +1,5 @@
 var dbConnect = require('./dbconnect');
-
+var pg = require('pg');
 module.exports = {
 	savePost : function(post, cb){
 		dbConnect(function(client, done){
@@ -15,11 +15,17 @@ module.exports = {
       		})
 		});
 	},
-	retrieveTopics : function(topic, cb){
+	retrieveTopics : function(cb){
 		dbConnect(function(client, done){
 			client.query(
-				//select topic from table
-				)
+				"SELECT topic FROM topics", function(err, result){
+					if (err){
+						console.log(err);
+						throw(err);
+					}
+					cb(result.rows)
+				}
+			)
 		});
 	},
 	togglePostProps : function(post, cb){

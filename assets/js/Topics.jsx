@@ -12,7 +12,6 @@ var Topics = React.createClass({
 		.then(function(d){ return d.json()})
 		.then(function(data){
 			this.setState({topic: data.topic});
-
 		}.bind(this));
 	},
 	render: function(){

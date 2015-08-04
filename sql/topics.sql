@@ -2,7 +2,7 @@ drop table if exists topics;
 create table topics (
   id serial primary key,
   topic varchar(255),
-  img_url varchar(255),
+  img_url varchar(400),
   description varchar(255)
 ); 
 

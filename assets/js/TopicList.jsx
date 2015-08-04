@@ -1,5 +1,7 @@
 require('../css/style.css');
 var React = require('react');
+var dbApi = require('./utils/dbApi');
+
 
 var TopicList = React.createClass({
 	getInitialState: function(){
@@ -8,11 +10,9 @@ var TopicList = React.createClass({
 		}
 	},
 	componentDidMount: function(){
-		fetch('/topic-list')
-		.then(function(d){ return d.json()})
-		.then(function(data){
-			this.setState({topics: data.topics});
-		}.bind(this));
+		dbApi.retrieveTopics(function(topics){
+			this.setState({topics: [topics]});
+		})
 	},
 	render: function(){
 		var list = this.state.topics.map(function(topic){
@@ -30,3 +30,10 @@ var TopicList = React.createClass({
 });
 
 module.exports = TopicList;
+// componentDidMount: function(){
+// 		fetch('/topic-list')
+// 		.then(function(d){ return d.json()})
+// 		.then(function(data){
+// 			this.setState({topics: data.topics});
+// 		}.bind(this));
+// 	},

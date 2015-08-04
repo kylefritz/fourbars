@@ -14,9 +14,9 @@ var Header = React.createClass({
 						<span>4B</span><span style={{color: 'red'}}>ars</span>
 					</Link>
 					<ul className="nav navbar-nav navbar-right">
-						<li><a><Link to="/topics">Contribute</Link></a></li> 
-						<li><a>Inspire </a></li>		
-						<li><a>Create </a></li>		
+						<Link to="/topics"><li><a>Contribute</a></li>  </Link>
+						<Link to="/browse"><li><a>Inspiration </a></li> </Link>	
+						<Link to="/"><li><a>Create </a></li> </Link>
 					</ul>
 				</div>
 			</nav>
