@@ -10,8 +10,13 @@ var TopicList = React.createClass({
 		}
 	},
 	componentDidMount: function(){
-		dbApi.retrieveTopics(function(topics){
-			this.setState({topics: [topics]});
+		fetch('/topics', {
+		 headers: {
+	    'Accept': 'application/json',
+	    'Content-Type': 'application/json'
+	  	}
+		}).then((d) => d.json()).then((topics) => {
+			this.setState({topics: topics});
 		})
 	},
 	render: function(){
@@ -30,10 +35,3 @@ var TopicList = React.createClass({
 });
 
 module.exports = TopicList;
-// componentDidMount: function(){
-// 		fetch('/topic-list')
-// 		.then(function(d){ return d.json()})
-// 		.then(function(data){
-// 			this.setState({topics: data.topics});
-// 		}.bind(this));
-// 	},
