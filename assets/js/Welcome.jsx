@@ -5,28 +5,48 @@ var Welcome = React.createClass({
 	getInitialState: function(){
 		return {
 			user: "",
-			topic: ""
+			rhymes: ""
 		}
 	},
 	componentDidMount: function(){
 		fetch('/user')
+		.then(function(d){ return d.json()})
 		.then(function(data){
-			console.log(data.body);
 			this.setState({user: data.user});
 		}.bind(this));
 	},
 	render: function(){
-		console.log(this.state);
+
 		return(<div>
-				<div>Welcome, {this.state.user}! </div>
+				<h3>Welcome, {this.state.user}! </h3>
 				<Topics />
-					<br/>
 					<form>
-						<textarea rows="4" placeholder="Spit fire"> </textarea>
-						<button type="submit" class="btn btn-primary">Spit it</button>
+						<textarea
+							rows="4"
+							placeholder="Spit fire"
+							value={this.state.rhymes}
+							onChange={this.handleInput}
+							>
+						</textarea>
+
+						<hr/>
+						
+						<button
+							type="submit"
+							onSubmit={this.handleSubmit}
+							class="btn btn-primary"
+							>
+							Spit it
+						</button>
 					</form>
 				</div>
 			)
+	},
+	handleInput: function(event){
+		this.setState({rhymes: event.target.value})
+	},
+	handleSubmit: function(){
+
 	}
 });
 

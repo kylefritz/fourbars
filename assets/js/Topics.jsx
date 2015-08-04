@@ -2,16 +2,22 @@ require('../css/style.css'); //ToDo: needs own CSS?
 var React = require('react');
 
 var Topics = React.createClass({
+	getInitialState: function(){
+		return {
+			topic: ""
+		}
+	},
 	componentDidMount: function(){
 		fetch('/topics')
 		.then(function(d){ return d.json()})
 		.then(function(data){
-			this.setState({topics: data.entries});
+			this.setState({topic: data.topic});
 		}.bind(this));
 	},
 	render: function(){
 		return(<div>
-						<div>Topics!!, {this.state}!</div>
+						<h3>Today's Topic</h3>
+						<h4>{this.state.topic}</h4>
 				</div>
 			)
 	}
