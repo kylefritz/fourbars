@@ -5,13 +5,17 @@ var Router = require('react-router');
 var Route = Router.Route;
 var App = require('./App');
 var Topics = require('./Topics');
+var Welcome = require('./Welcome');
+var DefaultRoute = Router.DefaultRoute;
+var TopicList = require('./TopicList');
 
 // declare our routes and their hierarchy
 
 module.exports = ( 
 	<Route path ="/" handler={App}>
-		<Route path="Topics" handler={Topics} />
-    
+		<DefaultRoute handler={Welcome} />
+		<Route path="topics" handler={TopicList}/>
+		
   	</Route>
 );
 

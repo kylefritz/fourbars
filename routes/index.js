@@ -18,9 +18,15 @@ router.get('/topics', function(req, res, next) {
   })
 });
 
-router.get('/topics', function(req, res, next) {
+router.get('/topic-list', function(req, res, next) {
   res.json({
-  	topic: "Cool Winter Morning" //need to link to DB
+  	topics: [
+      "Cool Winter Morning",
+      "Didn't Eat Breakfast",
+      "Favorite Song",
+      "The Hustle vs the Struggle"
+      ]
+
   })
 });
 

@@ -1,6 +1,5 @@
 require('../css/style.css'); //ToDo: needs own CSS?
 var React = require('react');
-
 var Topics = React.createClass({
 
 	getInitialState: function(){
@@ -19,13 +18,12 @@ var Topics = React.createClass({
 	render: function(){
 		return(<div>
 
-						<h3>Today's Topic</h3>
+						<h3>Topic Today</h3>
 						<h4>{this.state.topic}</h4>
 
 				</div>
 			)
 	}
-})
-
+});
 
 module.exports = Topics;

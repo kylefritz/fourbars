@@ -43,7 +43,9 @@ var Welcome = React.createClass({
 			)
 	},
 	handleInput: function(event){
-		this.setState({rhymes: event.target.value})
+		if(event.target.value.length < 280){
+			this.setState({rhymes: event.target.value})
+		}
 	},
 	handleSubmit: function(){
 
